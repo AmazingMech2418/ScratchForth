@@ -1,21 +1,12 @@
-class Parser {
-  #items;
-  #chars;
-  #labels;
-  #nums;
+function Parser(_items, _chars) {
+  const items = _items;
+  const chars = _chars;
+  let labelsField = {};
+  let numsField = [];
   
-  constructor(items, chars) {
-    this.#items = items;
-    this.#chars = chars;
-    this.#labels = {};
-    this.#nums = [];
-  }
-  
-  parse() {
-    const items = this.#items;
-    const chars = this.#chars;
+  this.parse = function () {
     const fns = require("./functions.js");
-    
+
     // Stores binary numbers
     let nums = [];
     // Stores positions of various labels
@@ -88,17 +79,17 @@ class Parser {
         }
       }
     }
-    
-    this.#labels = labels;
-    this.#nums = nums;
+
+    labelsField = labels;
+    numsField = nums;
   }
   
-  getLabels() {
-    return this.#labels;
+  this.getLabels = function () {
+    return labelsField;
   }
   
-  getBin() {
-    return this.#nums;
+  this.getBin = function () {
+    return numsField;
   }
 }
 
