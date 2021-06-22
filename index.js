@@ -3,36 +3,40 @@
  *          Scratch Binary Format            *
  *********************************************/
 
-// Numerical codes to go with each function name
-const fns = require("./src/functions.js");
+module.exports = (argv) => {
 
-// fs is needed to read chars and the main program file
-const fs = require("fs");
+  // Numerical codes to go with each function name
+  const fns = require("./src/functions.js");
 
-// Read program file
-const readProgFile = require("./src/progfile.js");
-const prog = readProgFile("main.sfth");
+  // fs is needed to read chars and the main program file
+  const fs = require("fs");
 
-// Get chars with \r removed and delimited by newlines
-const getCharList = require("./src/charlist.js");
-const chars = getCharList();
+  // Read program file
+  const readProgFile = require("./src/progfile.js");
+  const prog = readProgFile("main.sfth");
 
-// Array to store tokens from program file
-const items = require("./src/lexer.js")(prog);
+  // Get chars with \r removed and delimited by newlines
+  const getCharList = require("./src/charlist.js");
+  const chars = getCharList();
 
-
-const Parser = require("./src/parser.js");
-const parser = new Parser(items, chars);
-parser.parse();
-
-// Stores binary numbers
-const nums = parser.getBin();
-// Stores positions of various labels
-const labels = parser.getLabels();
+  // Array to store tokens from program file
+  const items = require("./src/lexer.js")(prog);
 
 
+  const Parser = require("./src/parser.js");
+  const parser = new Parser(items, chars);
+  parser.parse();
 
-// Print labels for debugging purposes
-console.log(labels);
-// Print output binary
-console.log(nums.join(""));
+  // Stores binary numbers
+  const nums = parser.getBin();
+  // Stores positions of various labels
+  const labels = parser.getLabels();
+
+
+
+  // Print labels for debugging purposes
+  console.log(labels);
+  // Print output binary
+  console.log(nums.join(""));
+
+}
