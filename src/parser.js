@@ -24,7 +24,7 @@ function Parser(_items, _chars) {
         i = i.replace("MACRO:", "").trim();
 
         const macroName = i.substring(0, i.indexOf(" ")).toLowerCase();
-        const macroCode = i.substring(i.indexOf(" "));
+        const macroCode = i.substring(i.indexOf(" ") + 1);
 
         const macroTokens = lexer(macroCode);
 
