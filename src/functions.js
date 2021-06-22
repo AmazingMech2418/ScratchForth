@@ -1,3 +1,13 @@
+/*********************************************
+ *   ScratchForth - Forth implementation for *
+ *          Scratch Binary Format            *
+ *                                           *
+ *   Copyright (C) 2021  AmazingMech2418     *
+ *                                           *
+ *   Licensed under GPLv3 - see license in   *
+ *            the LICENSE file               *
+ *********************************************/
+
 // Numerical codes to go with each function name
 const fns = {
   // 1 reserved for pushs
