@@ -14,7 +14,8 @@ const readProgFile = require("./src/progfile.js");
 const prog = readProgFile("main.sfth");
 
 // Get chars with \r removed and delimited by newlines
-const chars = fs.readFileSync("CHARS.txt").toString().split("\r").join("").split("\n");
+const getCharList = require("./src/charlist.js");
+const chars = getCharList();
 
 // Array to store tokens from program file
 let items = [];
