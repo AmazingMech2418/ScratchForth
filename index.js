@@ -10,8 +10,9 @@ const fns = require("./src/functions.js");
 const fs = require("fs");
 
 // Read program file
-// Convert newlines to spaces, removing empty lines
-const prog = fs.readFileSync("main.sfth").toString().split("\n").filter(n=>n.length>0).join(" ");
+const readProgFile = require("./src/progfile.js");
+const prog = readProgFile("main.sfth");
+
 // Get chars with \r removed and delimited by newlines
 const chars = fs.readFileSync("CHARS.txt").toString().split("\r").join("").split("\n");
 
