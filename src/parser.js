@@ -13,7 +13,7 @@ function Parser(_items, _chars) {
   const chars = _chars;
   let labelsField = {};
   let numsField = [];
-  
+
   this.parse = function () {
     const fns = require("./functions.js");
 
@@ -30,18 +30,18 @@ function Parser(_items, _chars) {
       let pos = 1;
       // Loop through items
       for(let i of items) {
-        if(i in fns) {
+        if(i.toLowerCase() in fns) {
           // If a function, get the binary for the corresponding number
-          const bin = fns[i].toString("2");
+          const bin = fns[i.toLowerCase()].toString("2");
           nums.push("0".repeat(8-bin.length)+bin);
           // 1 byte
           pos += 8;
         } else if (i.startsWith(":")) {
           // Set label position
           labels[i] = pos;
-        } else if (i.startsWith("LABEL:")) {
+        } else if (i.toUpperCase().startsWith("LABEL:")) {
           // Get label
-          const lblName = i.replace("LABEL", "");
+          const lblName = i.replace(/LABEL/i, "");
           nums.push("00000001");
           // Start is 1 byte
           pos += 8;
@@ -93,11 +93,11 @@ function Parser(_items, _chars) {
     labelsField = labels;
     numsField = nums;
   }
-  
+
   this.getLabels = function () {
     return labelsField;
   }
-  
+
   this.getBin = function () {
     return numsField;
   }
