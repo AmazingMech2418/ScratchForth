@@ -27,5 +27,3 @@ If you submit a PR for an issue with `needs discussion`, your PR might take a wh
 Please do not submit a PR that is not linked to an issue. If you have a suggestion you know how to implement, create the issue and then the PR for it.
 
 If an issue has an `in progress` label, also please do not submit a PR since a solution to the issue would already be in the process of being made. Additionally, a `help wanted` label would mean that the issue does not have a known solution, and discussion and pull requests are highly welcomed.
-
-When submitting a pull request, also please note that this project is meant to only be one file, so please do not create more files for the code. Doing so will automatically cause your pull request to be closed.
