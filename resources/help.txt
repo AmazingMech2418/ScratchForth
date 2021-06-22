@@ -25,5 +25,7 @@ options:
 
         -h / --help              show this file
 
+        --info                   display software info
+        
 
 file:                            name of input file
