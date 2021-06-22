@@ -1,0 +1,24 @@
+{
+  "name": "scratchforth",
+  "version": "1.0.0",
+  "description": "Forth implementation for compiling to Scratch Binary Format",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AmazingMech2418/ScratchForth.git"
+  },
+  "author": "AmazingMech2418",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/AmazingMech2418/ScratchForth/issues"
+  },
+  "homepage": "https://github.com/AmazingMech2418/ScratchForth#readme",
+  "bin": "bin.js",
+  "pkg": {
+    "assets": "resources/*"
+  }
+}

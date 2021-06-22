@@ -8,13 +8,6 @@
  *            the LICENSE file               *
  *********************************************/
 
-const fs = require("fs");
-const path = require("path");
+const process = require("process");
 
-function getCharList() {
-  const pathToFile = path.join(__dirname + "/../resources/CHARS.txt");
-
-  return fs.readFileSync(pathToFile).toString().split("\r").join("").split("\n");
-}
-
-module.exports = getCharList;
+require(".")(process.argv);
