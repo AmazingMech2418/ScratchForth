@@ -17,6 +17,15 @@ function printHelpFile() {
   console.log(helpFile.toString());
 }
 
+function printPackageInfo() {
+  const fs = require("fs");
+  const path = require("path")
+
+  const helpFile = fs.readFileSync(path.join(__dirname + "/resources/packageinfo.txt"));
+
+  console.log(helpFile.toString());
+}
+
 module.exports = (argv) => {
 
   const args = argv.slice(2);
@@ -58,6 +67,9 @@ module.exports = (argv) => {
       opts.outfileDef = true;
     } else if (arg == "-h" || arg == "--help") {
       printHelpFile();
+      return;
+    } else if (arg == "--info") {
+      printPackageInfo();
       return;
     } else {
       opts.infile = arg;
