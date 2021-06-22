@@ -13,10 +13,10 @@ If you would like to fix a bug or implement a suggestion, it is best that you wo
 
 Here is a breakdown of these priority levels:
 - 1: Feature request - Should be implemented but not critical to add
-- 2: Improvement suggestion - Suggestion to improve the security of the XSS protection system, but not linked to a clear vulnerability
-- 3: Low priority bug - A bug that is extremely difficult to exploit, such as one that someone can possibly exploit, but not through an arbitrary JavaScript code snippet alone (i.e. tampering with the browser engine or exploiting a buffer overflow)
+- 2: Significant improvement - Suggestion to greatly improve the user experience
+- 3: Low priority bug - A bug that is extremely difficult to exploit
 - 4: Medium priority bug - A bug that can be exploited, but has restrictions to what it can do
-- 5: Critical Vulnerability - A vulnerability allowing arbitrary bypass of the request blocking system or allowing XSS through the system in some way
+- 5: Critical Vulnerability - A critical security vulnerability
 
 If an issue does not have a priority label, you can feel free to submit a PR, but consider what priority it would be labelled as first before attempting to submit the PR.
 
