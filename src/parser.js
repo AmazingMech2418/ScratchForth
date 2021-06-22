@@ -31,6 +31,8 @@ function Parser(_items, _chars) {
         macros[macroName] = macroTokens;
 
         items.splice(j, 1);
+        
+        j--;
       }
     }
 
