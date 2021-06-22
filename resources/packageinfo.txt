@@ -1,1 +1,8 @@
+Software Info:
 
+Licensed under GPLv3 - See <https://www.gnu.org/licenses/gpl-3.0.en.html> 
+or <https://github.com/AmazingMech2418/ScratchForth/blob/main/LICENSE>
+
+Copyright (C) 2021  AmazingMech2418
+
+Source: <https://github.com/AmazingMech2418/ScratchForth>
