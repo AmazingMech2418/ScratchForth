@@ -1,0 +1,20 @@
+LABEL:START goto
+
+:PROC1
+"Hello world!" '2' sayfor
+"Goodbye world!" '2' sayfor
+ret
+
+:START
+'1' '0' setvar
+:LBL1
+LABEL:PROC1 call
+'1' dup getvar '1' + setvar
+"This was run " '1' getvar join '2' sayfor
+'1' getvar "10" <
+LABEL:LBL1
+gotoif
+
+"Loop complete!" '2' sayfor
+"What is your name?" ask answer "Hello, " swap join '!' join '2' sayfor
+"Your username is " uname join '2' sayfor
