@@ -1,0 +1,29 @@
+Copyright (C) 2021  AmazingMech2418
+
+Usage: scratchforth [options] file
+
+options:
+        -l / --labels            show label locations in stdout
+
+        -o / --output            set output format
+            formats:
+                  stdout         print binary (as 1s and 0s) in stdout
+                  file           print binary to file
+                  sbf            print to binary file
+            Example:
+            scratchforth -o stdout main.sfth
+
+            Default option:      stdout
+
+        -f / --file              output file (if output type is file or sbf)
+            Example:
+            scratchforth -o file -f out.txt main.sfth
+
+            Default options:
+                  if output format is file, out.txt
+                  if output format is sbf, out.sbf
+
+        -h / --help              show this file
+
+
+file:                            name of input file
