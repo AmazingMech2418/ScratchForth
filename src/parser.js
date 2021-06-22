@@ -8,13 +8,46 @@
  *            the LICENSE file               *
  *********************************************/
 
+const lexer = require("./lexer.js");
+
 function Parser(_items, _chars) {
   const items = _items;
   const chars = _chars;
   let labelsField = {};
   let numsField = [];
+  let macros = {}
+
+  function parseMacros() {
+    for(let j = 0; j < items.length; j++) {
+      let i = items[j];
+      if(i.startsWith("MACRO:")) {
+        i = i.replace("MACRO:", "").trim();
+
+        const macroName = i.substring(0, i.indexOf(" ")).toLowerCase();
+        const macroCode = i.substring(i.indexOf(" "));
+
+        const macroTokens = lexer(macroCode);
+
+        macros[macroName] = macroTokens;
+
+        items.splice(j, 1);
+      }
+    }
+
+    for(let i = 0; i < items.length; i++) {
+      if(items[i].toLowerCase() in macros) {
+        const macroTokens = macros[items[i].toLowerCase()];
+
+        items.splice(i, 1, ...macroTokens);
+
+        i += macroTokens.length - 1;
+      }
+    }
+  }
 
   this.parse = function () {
+    parseMacros();
+
     const fns = require("./functions.js");
 
     // Stores binary numbers
