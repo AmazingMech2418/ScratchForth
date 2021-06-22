@@ -1,3 +1,13 @@
+/*********************************************
+ *   ScratchForth - Forth implementation for *
+ *          Scratch Binary Format            *
+ *                                           *
+ *   Copyright (C) 2021  AmazingMech2418     *
+ *                                           *
+ *   Licensed under GPLv3 - see license in   *
+ *            the LICENSE file               *
+ *********************************************/
+
 const fs = require("fs");
 const readProgFile = require("./progfile.js");
 const path = require("path");
