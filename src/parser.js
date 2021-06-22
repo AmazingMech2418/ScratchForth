@@ -96,3 +96,5 @@ class Parser {
     return this.#nums;
   }
 }
+
+module.exports = Parser;
