@@ -8,7 +8,61 @@
  *            the LICENSE file               *
  *********************************************/
 
+function printHelpFile() {
+  const fs = require("fs");
+  const path = require("path")
+
+  const helpFile = fs.readFileSync(path.join(__dirname + "/resources/help.txt"));
+
+  console.log(helpFile.toString());
+}
+
 module.exports = (argv) => {
+
+  const args = argv.slice(2);
+
+  const opts = {
+    labels: false,
+    out: 1,
+    outfile: "out.txt",
+    outfileDef: false,
+    infile: "main.sfth"
+  };
+
+  if(args.length == 0) {
+    printHelpFile();
+    return;
+  }
+
+  for(let i = 0; i < args.length; i++) {
+    const arg = args[i];
+    if (arg == "-l" || arg == "--labels") {
+      opts.labels = true;
+    } else if (arg == "-o" || arg == "--output") {
+      const type = args[++i];
+      if (type == "stdout") {
+        opts.out = 1;
+      } else if (type == "file") {
+        opts.out = 2;
+      } else if (type == "sbf") {
+        opts.out = 3;
+        if(!opts.outfileDef) opts.outfile = "out.sbf";
+      } else {
+        console.log("Error: Invalid format type \"" + type + "\"");
+        printHelpFile();
+        return;
+      }
+    } else if (arg == "-f" || arg == "--file") {
+      const outfileName = args[++i];
+      opts.outfile = outfileName;
+      opts.outfileDef = true;
+    } else if (arg == "-h" || arg == "--help") {
+      printHelpFile();
+      return;
+    } else {
+      opts.infile = arg;
+    }
+  }
 
   // Numerical codes to go with each function name
   const fns = require("./src/functions.js");
@@ -18,7 +72,7 @@ module.exports = (argv) => {
 
   // Read program file
   const readProgFile = require("./src/progfile.js");
-  const prog = readProgFile("main.sfth");
+  const prog = readProgFile(opts.infile);
 
   // Get chars with \r removed and delimited by newlines
   const getCharList = require("./src/charlist.js");
@@ -40,8 +94,17 @@ module.exports = (argv) => {
 
 
   // Print labels for debugging purposes
-  console.log(labels);
+  if (opts.labels) console.log(labels);
   // Print output binary
-  console.log(nums.join(""));
+
+  if(opts.out == 1) {
+    console.log(nums.join(""));
+  } else {
+    const Formatter = require("./src/format.js");
+    const formatter = new Formatter(opts.out);
+    formatter.format(nums);
+
+    formatter.out(opts.outfile);
+  }
 
 }
