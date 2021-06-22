@@ -1,4 +1,9 @@
 class Parser {
+  #items;
+  #chars;
+  #labels;
+  #nums;
+  
   constructor(items, chars) {
     this.#items = items;
     this.#chars = chars;
