@@ -1,20 +1,17 @@
 ---
 name: Feature request
 about: Suggest an idea for this project
-title: ''
-labels: ''
-assignees: ''
+title: 'Feature Request: '
+labels: 'enhancement, feature'
+assignees: 'AmazingMech2418'
 
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+### Description
+_Describe what you would like the feature to be. Also, is it related to a bug, and if so, which one?_
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+### Alternatives
+_Are there any alternatives to this feature request?_
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
-
-**Additional context**
-Add any other context or screenshots about the feature request here.
+### Additional Context
+_Add any other context or screenshots about the feature request here._
